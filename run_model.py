@@ -320,7 +320,7 @@ cax = div.append_axes("right", "5%", "5%")
 cv0 = frames[0]
 im = ax.imshow(cv0, cmap="bwr")
 cb = fig.colorbar(im, cax=cax)
-tx = ax.set_title(f"time: {ts[0]}")
+tx = ax.set_title(f'time: {ts[0]}, EpHat: {round(EpHat,4)}, a/LD2: {round(aOLd,2)}')
 
 
 def animate(i):
@@ -330,7 +330,7 @@ def animate(i):
     vmin = np.min(arr)
     im.set_data(arr)
     im.set_clim(vmin, vmax)
-    tx.set_text(f"time: {ts[i]}")
+    tx.set_text(f'time: {ts[i]}, EpHat: {round(EpHat,4)}, a/LD2: {round(aOLd,2)}')
 
 
 ani = animation.FuncAnimation(fig, animate, interval=ani_interval, frames=len(frames))
